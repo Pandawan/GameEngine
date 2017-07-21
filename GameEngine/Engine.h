@@ -1,7 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <iostream>
-#include "Bob.h"
+#include "Player.h"
 #include "GameObject.h"
 
 using namespace sf;
@@ -17,8 +17,8 @@ private:
 	Sprite m_BackgroundSprite;
 	Texture m_BackgroundTexture;
 
-	// An instance of Bob
-	Bob m_Bob;
+	// An instance of Player
+	Player* m_Player;
 
 	std::vector<GameObject*> m_GameObjects;
 
@@ -42,5 +42,11 @@ public:
 
 	// Create all the GameObjects needed
 	void createObjects();
+
+	void destroyObject(GameObject* obj);
+
+	void clearObjects();
+
+	GameObject* findObject(std::string name);
 
 };

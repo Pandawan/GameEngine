@@ -65,10 +65,15 @@ void Engine::start()
 		draw();
 	}
 
+	clearObjects();
+
 	std::cout << "Closing." << std::endl;
 }
 
 void Engine::createObjects() {
+	m_Player = new Player();
+	m_GameObjects.push_back(m_Player);
+
 
 	GameObject* random = new GameObject("Random", "textures/random.png");
 	m_GameObjects.push_back(random);
@@ -78,4 +83,38 @@ void Engine::createObjects() {
 	{
 		obj->start();
 	}
+}
+/* 
+Here's how to loop over every GameObject in the gameObjects list/vector
+
+	while (!m_GameObjects.empty())
+		destroyObject(m_GameObjects.back());
+*/
+
+void Engine::destroyObject(GameObject* obj) {
+
+	if (obj == nullptr) {
+		std::cout << "Error: GameObject pointer given is null!" << std::endl;
+		return;
+	}
+	else if (m_GameObjects.empty()) {
+		std::cout << "Error: Trying to destroy GameObject while list is empty!" << std::endl;
+		return;
+	}
+
+	auto it = std::remove(m_GameObjects.begin(), m_GameObjects.end(), obj);
+	if (it != m_GameObjects.end()) {
+		delete obj;
+		m_GameObjects.erase(it, m_GameObjects.end());
+	}
+}
+
+void Engine::clearObjects() {
+	m_GameObjects.clear();
+}
+
+GameObject* Engine::findObject(std::string name) {
+	auto result = std::find_if(m_GameObjects.begin(), m_GameObjects.end(), [name](GameObject* e) { return e->getName() == name; });
+
+	return *result;
 }

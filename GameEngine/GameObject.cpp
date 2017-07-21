@@ -37,6 +37,18 @@ Vector2f GameObject::getCenterPosition() {
 	return m_Position + Vector2f(rect.width / 2, rect.height / 2);
 }
 
+void GameObject::setPosition(Vector2f position) {
+	m_Position = position;
+	m_Sprite.setPosition(m_Position);
+}
+
+void GameObject::setCenterPosition(Vector2f position) {
+	sf::IntRect rect = m_Sprite.getTextureRect();
+
+	m_Position = position - Vector2f(rect.width / 2, rect.height / 2);
+	m_Sprite.setPosition(m_Position);
+}
+
 void GameObject::start()
 {
 	std::cout << "Created object " << m_Name << std::endl;

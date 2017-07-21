@@ -7,7 +7,7 @@ class GameObject
 {
 
 	// All the private variables can only be accessed internally
-private:
+protected:
 	// GameObject's name
 	std::string m_Name;
 
@@ -37,6 +37,12 @@ public:
 
 	// Get position in world where the center of the sprite is
 	Vector2f getCenterPosition();
+
+	// Set position in world (top left corner of sprite)
+	void setPosition(Vector2f position);
+
+	// Set position in world at center of sprite
+	void setCenterPosition(Vector2f position);
 
 	// Called on GameObject creation
 	void start();

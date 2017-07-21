@@ -7,7 +7,7 @@ void Engine::draw()
 	m_Window.clear(Color::Black);
 
 	sf::View currentView = m_Window.getView();
-	currentView.setCenter(m_Bob.getCenterPosition());
+	currentView.setCenter(m_Player->getCenterPosition());
 	m_Window.setView(currentView);
 
 	// Draw the background
@@ -20,7 +20,7 @@ void Engine::draw()
 	}
 
 	// Draw player
-	m_Window.draw(m_Bob.getSprite());
+	m_Window.draw(m_Player->getSprite());
 
 	// Show everything we have just drawn
 	m_Window.display();

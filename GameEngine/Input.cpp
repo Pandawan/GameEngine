@@ -32,6 +32,14 @@ void Engine::input()
 		dirY = 1;
 	}
 
-	m_Bob.move(dirX, dirY);
+	m_Player->move(dirX, dirY);
+
+	// Vertical Player Movement
+	if (Keyboard::isKeyPressed(Keyboard::K))
+	{
+		GameObject* obj = findObject("Random");
+
+		destroyObject(obj);
+	}
 
 }

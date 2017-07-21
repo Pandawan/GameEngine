@@ -5,7 +5,7 @@ using namespace sf;
 
 void Engine::update(float dtAsSeconds)
 {
-	m_Bob.update(dtAsSeconds);
+	m_Player->update(dtAsSeconds);
 
 	for each (GameObject* obj in m_GameObjects)
 	{
