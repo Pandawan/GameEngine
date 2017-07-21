@@ -20,7 +20,7 @@ private:
 	// An instance of Bob
 	Bob m_Bob;
 
-	std::vector<GameObject> m_GameObjects;
+	std::vector<GameObject*> m_GameObjects;
 
 	// Name of the Game Engine
 	std::string m_Name;

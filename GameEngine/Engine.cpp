@@ -70,12 +70,12 @@ void Engine::start()
 
 void Engine::createObjects() {
 
-	GameObject random = GameObject("Random", "textures/random.png");
+	GameObject* random = new GameObject("Random", "textures/random.png");
 	m_GameObjects.push_back(random);
 
 
-	for each (GameObject obj in m_GameObjects)
+	for each (GameObject* obj in m_GameObjects)
 	{
-		obj.start();
+		obj->start();
 	}
 }

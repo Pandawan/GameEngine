@@ -26,6 +26,9 @@ public:
 	// Constructor
 	GameObject(std::string name, std::string texturePath);
 
+	// Get the GameObject Name
+	std::string getName();
+
 	// Send a copy of the sprite to main
 	Sprite getSprite();
 

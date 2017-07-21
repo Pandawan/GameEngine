@@ -14,9 +14,9 @@ void Engine::draw()
 	m_Window.draw(m_BackgroundSprite);
 
 	// Draw GameObjects
-	for each (GameObject obj in m_GameObjects)
+	for each (GameObject* obj in m_GameObjects)
 	{
-		m_Window.draw(obj.getSprite());
+		m_Window.draw(obj->getSprite());
 	}
 
 	// Draw player

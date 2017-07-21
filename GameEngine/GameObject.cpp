@@ -17,6 +17,10 @@ GameObject::GameObject(std::string name, std::string texture)
 	m_Sprite.setPosition(m_Position);
 }
 
+std::string GameObject::getName() {
+	return m_Name;
+}
+
 // Make the private spite available to the draw() function
 Sprite GameObject::getSprite()
 {

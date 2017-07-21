@@ -7,8 +7,8 @@ void Engine::update(float dtAsSeconds)
 {
 	m_Bob.update(dtAsSeconds);
 
-	for each (GameObject obj in m_GameObjects)
+	for each (GameObject* obj in m_GameObjects)
 	{
-		obj.update(dtAsSeconds);
+		obj->update(dtAsSeconds);
 	}
 }
