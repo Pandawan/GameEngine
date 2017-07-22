@@ -45,8 +45,9 @@ public:
 
 	void destroyObject(GameObject* obj);
 
-	void clearObjects();
-
 	GameObject* findObject(std::string name);
 
+	void clearObjects();
+
+	void printObjects();
 };

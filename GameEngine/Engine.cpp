@@ -84,7 +84,7 @@ void Engine::createObjects() {
 		obj->start();
 	}
 }
-/* 
+/*
 Here's how to loop over every GameObject in the gameObjects list/vector
 
 	while (!m_GameObjects.empty())
@@ -109,12 +109,24 @@ void Engine::destroyObject(GameObject* obj) {
 	}
 }
 
+GameObject* Engine::findObject(std::string name) {
+	auto it = std::find_if(m_GameObjects.begin(), m_GameObjects.end(), [name](GameObject* e) { return e->getName() == name; });
+
+	if (it == m_GameObjects.end()) {
+		std::cout << "Error: No object found with the name " << name << "." << std::endl;
+		return nullptr;
+	}
+
+	return *it;
+}
+
 void Engine::clearObjects() {
 	m_GameObjects.clear();
 }
 
-GameObject* Engine::findObject(std::string name) {
-	auto result = std::find_if(m_GameObjects.begin(), m_GameObjects.end(), [name](GameObject* e) { return e->getName() == name; });
-
-	return *result;
+void Engine::printObjects() {
+	std::cout << "m_GameObjects contains:";
+	for (unsigned i = 0; i < m_GameObjects.size(); ++i)
+		std::cout << ' ' << m_GameObjects[i]->getName();
+	std::cout << '\n';
 }

@@ -39,7 +39,9 @@ void Engine::input()
 	{
 		GameObject* obj = findObject("Random");
 
-		destroyObject(obj);
+		if (obj != nullptr) {
+			destroyObject(obj);
+		}
 	}
 
 }
