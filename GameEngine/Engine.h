@@ -3,6 +3,7 @@
 #include <iostream>
 #include "Player.h"
 #include "GameObject.h"
+#include "FPS.h"
 
 using namespace sf;
 
@@ -21,6 +22,11 @@ private:
 	Player* m_Player;
 
 	std::vector<GameObject*> m_GameObjects;
+
+	FPS* m_FPS;
+
+	sf::View* m_GameView;
+	sf::View* m_UIView;
 
 	// Name of the Game Engine
 	std::string m_Name;

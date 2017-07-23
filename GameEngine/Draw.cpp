@@ -6,9 +6,10 @@ void Engine::draw()
 	// Rub out the last frame
 	m_Window.clear(Color::Black);
 
-	sf::View currentView = m_Window.getView();
-	currentView.setCenter(m_Player->getCenterPosition());
-	m_Window.setView(currentView);
+	/***** GAME VIEW *****/
+
+	m_GameView->setCenter(m_Player->getCenterPosition());
+	m_Window.setView(*m_GameView);
 
 	// Draw the background
 	m_Window.draw(m_BackgroundSprite);
@@ -21,6 +22,14 @@ void Engine::draw()
 
 	// Draw player
 	m_Window.draw(m_Player->getSprite());
+
+
+	/***** UI VIEW *****/
+
+	m_Window.setView(*m_UIView);
+
+	// Draw FPS
+	m_Window.draw(m_FPS->getText());
 
 	// Show everything we have just drawn
 	m_Window.display();

@@ -21,7 +21,7 @@ Engine::Engine()
 
 	// Load the background into the texture
 	// Be sure to scale this image to your screen size
-	m_BackgroundTexture.loadFromFile("textures/background.jpg");
+	m_BackgroundTexture.loadFromFile("Assets/textures/background.jpg");
 
 	// Associate the sprite with the texture
 	m_BackgroundSprite.setTexture(m_BackgroundTexture);
@@ -42,6 +42,11 @@ void Engine::start()
 
 	createObjects();
 
+	m_GameView = new View(m_Window.getView());
+	m_UIView = new View(Vector2f(0,0), m_Window.getView().getSize());
+
+	m_FPS = new FPS(m_UIView);
+
 	while (m_Window.isOpen())
 	{
 		// Restart the clock and save the elapsed time into dt (deltaTime)
@@ -49,6 +54,12 @@ void Engine::start()
 
 		// Make a fraction from the delta time
 		float dtAsSeconds = dt.asSeconds();
+
+
+		float currentTime = dt.asSeconds();
+		float fps = 1.f / currentTime;
+
+		m_FPS->displayFPS(fps);
 
 		// check all the window's events that were triggered since the last iteration of the loop
 		sf::Event event;
@@ -75,7 +86,7 @@ void Engine::createObjects() {
 	m_GameObjects.push_back(m_Player);
 
 
-	GameObject* random = new GameObject("Random", "textures/random.png");
+	GameObject* random = new GameObject("Random", "Assets/textures/random.png");
 	m_GameObjects.push_back(random);
 
 

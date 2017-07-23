@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "GameObject.h"
-#include <iostream>
 
 GameObject::GameObject(std::string name, std::string texture)
 {
@@ -55,6 +54,11 @@ void GameObject::start()
 }
 
 void GameObject::update(float elapsedTime)
+{
+
+}
+
+void GameObject::input()
 {
 
 }

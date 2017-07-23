@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include <iostream>
 
 using namespace sf;
 
@@ -45,8 +46,11 @@ public:
 	void setCenterPosition(Vector2f position);
 
 	// Called on GameObject creation
-	void start();
+	virtual void start();
 
 	// Called once every frame
-	void update(float elapsedTime);
+	virtual void update(float elapsedTime);
+
+	// Called once every frame during the input phase
+	virtual void input();
 };

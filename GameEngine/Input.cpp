@@ -9,31 +9,12 @@ void Engine::input()
 		m_Window.close();
 	}
 
-	int dirX = 0;
-	int dirY = 0;
-
-	// Horizontal Player Movement
-	if (Keyboard::isKeyPressed(Keyboard::A))
+	for each (GameObject* obj in m_GameObjects)
 	{
-		dirX = -1;
-	}
-	else if (Keyboard::isKeyPressed(Keyboard::D))
-	{
-		dirX = 1;
+		obj->input();
 	}
 
-	// Vertical Player Movement
-	if (Keyboard::isKeyPressed(Keyboard::W))
-	{
-		dirY = -1;
-	}
-	else if (Keyboard::isKeyPressed(Keyboard::S))
-	{
-		dirY = 1;
-	}
-
-	m_Player->move(dirX, dirY);
-
+	
 	// Vertical Player Movement
 	if (Keyboard::isKeyPressed(Keyboard::K))
 	{
